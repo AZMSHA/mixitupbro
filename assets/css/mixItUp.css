@@ -1,0 +1,210 @@
+#rotatingServices {
+  max-width: 1600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#rotatingServices * {
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+  text-decoration: none;
+  color: inherit;
+}
+
+#rotatingServices .controls {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(100px, 1fr));
+  align-items: center;
+  justify-content: center;
+}
+
+#rotatingServices .controls button {
+  background-color: transparent;
+  padding: 1em 1em;
+  font-weight: 700;
+  width: 100%;
+  border: none;
+  transition: all 150ms ease-out;
+}
+
+#rotatingServices .controls button.active {
+  background-color: #fe712d;
+  color: white;
+}
+
+#rotatingServices .controls button:hover {
+  cursor: pointer;
+}
+
+#rotatingServices .controls button:hover,
+#rotatingServices .controls button:focus-visible {
+  color: white;
+  background-color: #fe712d;
+}
+
+#rotatingServices .controls button:active {
+  color: initial;
+  background-color: initial;
+}
+
+#rotatingServices .mix {
+  padding: 1rem;
+}
+
+#rotatingServices .mix li {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+#rotatingServices .mix img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  object-position: center;
+  user-select: none;
+}
+
+#rotatingServices .mix .text h5 {
+  text-transform: capitalize;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+#rotatingServices .mix .text span {
+  text-transform: capitalize;
+  color: #fe712d;
+}
+
+#rotatingServices .mix .text {
+  display: flex;
+  z-index: 1;
+  color: white;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 48px 0rem 24px 0rem;
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  overflow: hidden;
+  height: initial;
+  transition: all 500ms ease;
+}
+
+#rotatingServices .mix:hover .text {
+  padding: 0px;
+  transform: translate(0px, 100%);
+}
+
+#rotatingServices .mix .text::before {
+  position: absolute;
+  z-index: -1;
+  content: "";
+  left: 0px;
+  top: 0px;
+  right: -1px;
+  bottom: 0px;
+  opacity: 0.8;
+  background-color: black;
+  clip-path: polygon(0 25%, 100% 0, 100% 100%, 0% 100%);
+  -webkit-transform-origin: bottom center;
+  transform-origin: bottom center;
+  transition: all 500ms ease;
+}
+
+#rotatingServices .mix .overlay {
+  z-index: 1;
+  padding: 0px 48px;
+  position: absolute;
+  transform: translate(0px, 0%) rotateX(90deg);
+  transform-origin: bottom center;
+  clip-path: polygon(20% 0%, 80% 0, 100% 100%, 0% 100%);
+  inset: 0px;
+  bottom: 0px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+  justify-content: center;
+  transition: all 500ms ease;
+}
+
+#rotatingServices .mix:hover .overlay {
+  padding: 24px 48px;
+  transform: translate(0px, 0px) rotateX(0deg);
+  clip-path: polygon(0% 0%, 100% 0, 100% 100%, 0% 100%);
+}
+
+#rotatingServices .mix .overlay::before {
+  position: absolute;
+  content: "";
+  z-index: -1;
+  left: 0px;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  opacity: 0.8;
+  background: linear-gradient(to top right, red 0%, orange 100%);
+  transition: all 500ms ease;
+}
+
+#rotatingServices .mix .overlay i {
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0.875em 0.875em 0.75em 0.875em;
+  border-radius: 100%;
+  background-color: white;
+  color: black;
+  transition: all 500ms ease;
+}
+
+#rotatingServices .mix .overlay i:hover {
+  color: #fe712d;
+}
+
+#rotatingServices .mix .overlay p {
+  line-height: 1.25em;
+  color: white;
+  text-align: center;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1200px) {
+  #rotatingServices .mix .overlay p {
+    font-size: 0.75rem;
+  }
+  #rotatingServices .mix .text h5 {
+    font-size: 1rem;
+  }
+
+  #rotatingServices .mix .text span {
+    font-size: 0.75rem;
+  }
+
+  #rotatingServices .mix .overlay {
+    z-index: 1;
+    padding: 0px 12px !important;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  #rotatingServices .controls {
+    width: 100%;
+    grid-template-columns: repeat(3, minmax(100px, 1fr));
+  }
+}
+
+@media screen and (max-width: 480px) {
+  #rotatingServices .controls button {
+    padding: 1em 0em;
+    font-size: 0.75rem;
+  }
+}
